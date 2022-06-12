@@ -36,3 +36,131 @@
     transform: rotate(360deg);
   }
 }
+
+a {
+  text-decoration: none;
+}
+
+select {
+  width: 100%;
+  padding: 0.8em 0.5em;
+  font-family: inherit;
+  border: 1px solid #999;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.black {
+  color: black;
+}
+
+.crimson {
+  color: crimson;
+}
+
+.item-container {
+  margin: 0 auto;
+  width: 80%;
+  border: 1px solid #333;
+  padding: 10px 10px 10px 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  height: 100px;
+}
+
+.item-container:hover {
+  cursor: pointer;
+  background-color: beige;
+}
+
+.item-all {
+  display: block;
+  height: 100px;
+}
+
+.item-image {
+  float: left;
+  margin-right: 10px;
+  height: 100px;
+  width: 100px;
+}
+
+.item-info {
+  width: 90%;
+}
+
+.item-info-name {
+  overflow: hidden;
+  font-size: larger;
+  font-weight: bolder;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item-info-price {
+  overflow: hidden;
+  font-size: larger;
+  font-weight: bolder;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: crimson;
+}
+
+.item-info-desc {
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item-detail {
+  text-align: center;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.item-detail-image {
+  float: left;
+  height: 400px;
+  width: 400px;
+  padding-top: 10px;
+}
+
+.container {
+  border-top: 3px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.container-input {
+  text-align: center;
+  border-bottom: 3px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 400px;
+}
+
+.order-box {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  height: 380px;
+  width: 100%;
+  margin-left: 10px;
+  margin-top: 10px;
+  background-color: beige;
+}
+
+.select-box {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  width: 100%;
+  margin-top: 10px;
+  border-top: 1px solid black;
+}
