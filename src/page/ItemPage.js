@@ -119,7 +119,7 @@ function ItemPage() {
                 >
                   {item.mainItem.price} 원
                 </div>
-                <h3 style={{ textAlign: "left" }}>구성</h3>
+                <h3 style={{ textAlign: "left", height: "20px" }}>구성</h3>
                 <select
                   onChange={(e) => onOptionChange(e)}
                   id="option"
@@ -136,7 +136,7 @@ function ItemPage() {
                   ))}
                 </select>
 
-                <h3 style={{ textAlign: "left" }}>추가상품</h3>
+                <h3 style={{ textAlign: "left", height: "20px" }}>추가상품</h3>
                 {item.itemGroup.map((group) => (
                   <div style={{ textAlign: "left" }}>
                     {group}
@@ -146,6 +146,9 @@ function ItemPage() {
                       title={{ group }}
                       className="select-option"
                     >
+                      <option value="none" key="none">
+                        --{group}--
+                      </option>
                       {item.addItem.map((item) =>
                         group === item.pgroupName ? (
                           <option value={item.itemName} key={item.itemId}>
@@ -196,6 +199,13 @@ function ItemPage() {
               </Link>
             </div>
             {item.mainItem.itemDesc}
+            <div>
+              <img
+                style={{ width: "80%" }}
+                src={"http://localhost:8080/static/" + item.mainItem.descImage}
+                alt={item.mainItem.itemName}
+              />
+            </div>
           </>
         ) : (
           "해당 제품을 찾을 수 없습니다."
