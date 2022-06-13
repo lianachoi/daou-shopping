@@ -12,6 +12,10 @@ function ItemList() {
     });
   }, []);
 
+  const formatter = new Intl.NumberFormat("ko-KR");
+
+  const addComma = (value) => formatter.format(Number(value));
+
   return (
     <>
       {itemList.map((element) => (
@@ -28,7 +32,7 @@ function ItemList() {
               <div className="item-info">
                 <div className="item-info-name black">{element.itemName}</div>
                 <div className="item-info-price crimson">
-                  {element.price} 원
+                  {addComma(element.price)} 원
                 </div>
                 <div className="item-info-desc black">{element.itemDesc}</div>
               </div>

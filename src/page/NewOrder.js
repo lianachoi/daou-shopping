@@ -1,7 +1,7 @@
 import "../App.css";
 import { useEffect, useState } from "react";
 import Axios from "axios";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import moment from "moment";
 import { useNavigate } from "react-router";
 
@@ -12,6 +12,11 @@ function NewOrder(props) {
   const data = location.state.data;
   const navigate = useNavigate();
   //   console.log(data);
+
+  const formatter = new Intl.NumberFormat("ko-KR");
+
+  const addComma = (value) => formatter.format(Number(value));
+
   const [order, setOrder] = useState({
     orderId: "",
     userId: "",
@@ -146,10 +151,16 @@ function NewOrder(props) {
   };
   return (
     <>
-      <h1>
+      <h1 class="main-header">
+        <Link class="main-header-button" to="/searchOrder">
+          <button type="button">주문 조회</button>
+        </Link>
         <a href="/" className="black">
           DAOU Shopping
         </a>
+        <Link class="main-header-button" to="/payPage">
+          <button type="button">계좌 이체</button>
+        </Link>
       </h1>
       <div className="order-box">
         <h3>주문하기</h3>
@@ -162,7 +173,7 @@ function NewOrder(props) {
         </div>
         {mainItem.itemName}
         <br />
-        가격: {mainItem.price}
+        가격: {addComma(mainItem.price)}
         <div>
           {data.map((item) =>
             item.qty === 0 ? (
@@ -173,7 +184,8 @@ function NewOrder(props) {
                 <div> 수량: {item.qty}</div>
                 <div>
                   {" "}
-                  가격: {mainItem.price * item.qty + item.price * item.qty}
+                  가격:{" "}
+                  {addComma(mainItem.price * item.qty + item.price * item.qty)}
                 </div>
               </div>
             )
@@ -277,16 +289,17 @@ function NewOrder(props) {
         className="container-input"
         style={{ fontSize: "20px", padding: "30px", height: "150px" }}
       >
-        구매 금액 {total} 원
+        구매 금액 {addComma(total)} 원
         <br />
-        포인트 할인 금액 -{order.usePoint}원
+        포인트 할인 금액 -{addComma(order.usePoint)}원
         <br />
-        쿠폰 할인 금액 -{order.useCoupon || 0}원
+        쿠폰 할인 금액 -{addComma(order.useCoupon || 0)}원
         <br />
-        결제 금액 {total - (order.usePoint || 0) - (order.useCoupon || 0)}원
+        결제 금액{" "}
+        {addComma(total - (order.usePoint || 0) - (order.useCoupon || 0))}원
         <br />
-        {"("}총 할인 금액: {(order.usePoint || 0) + (order.useCoupon || 0)}원
-        {")"}
+        {"("}총 할인 금액:{" "}
+        {addComma((order.usePoint || 0) + (order.useCoupon || 0))}원{")"}
       </div>
       {/* 결제수단 선택 */}
       <div

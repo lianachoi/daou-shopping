@@ -39,6 +39,7 @@
 
 a {
   text-decoration: none;
+  padding-top: 10px;
 }
 
 select {
@@ -63,11 +64,13 @@ input:not(.radio) {
 button {
   padding: 5px 5px;
   font-family: inherit;
-  border: 1px solid #999;
-  color: #000;
+  border: 0px solid;
+  background-color: black;
+  color: white;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  border-radius: 3px;
 }
 
 table {
@@ -89,6 +92,17 @@ td {
 
 .crimson {
   color: crimson;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px auto;
+  width: 90%;
+}
+
+.main-header-button {
+  margin: 1px auto;
 }
 
 .item-container {

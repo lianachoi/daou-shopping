@@ -4,6 +4,10 @@ import Axios from "axios";
 import { Link, useParams } from "react-router-dom";
 
 function ItemPage() {
+  const formatter = new Intl.NumberFormat("ko-KR");
+
+  const addComma = (value) => formatter.format(Number(value));
+
   const [status, setStatus] = useState(200);
   const [item, setItem] = useState({
     mainItem: {},
@@ -91,10 +95,16 @@ function ItemPage() {
 
   return (
     <>
-      <h1>
+      <h1 class="main-header">
+        <Link class="main-header-button" to="/searchOrder">
+          <button type="button">주문 조회</button>
+        </Link>
         <a href="/" className="black">
           DAOU Shopping
         </a>
+        <Link class="main-header-button" to="/payPage">
+          <button type="button">계좌 이체</button>
+        </Link>
       </h1>
 
       <div className="item-detail">
@@ -117,7 +127,7 @@ function ItemPage() {
                   style={{ textAlign: "right" }}
                   className="item-info-price crimson"
                 >
-                  {item.mainItem.price} 원
+                  {addComma(item.mainItem.price)} 원
                 </div>
                 <h3 style={{ textAlign: "left", height: "20px" }}>구성</h3>
                 <select
@@ -184,7 +194,7 @@ function ItemPage() {
               className="item-info-price"
               style={{ textAlign: "center", color: "black" }}
             >
-              전체금액 : {total}
+              전체금액 : {addComma(total)}
               <br />
               <Link
                 to={"/newOrder"}
