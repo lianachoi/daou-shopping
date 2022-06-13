@@ -43,7 +43,7 @@ function ItemPage() {
       (element) => element.optionName === e.target.value
     );
     let newItem = options[index];
-    newItem.count = 1;
+    newItem.qty = 1;
     // console.log(newItem);
     setOrderList(orderList.concat(newItem));
     setTotal(total + item.mainItem.price + newItem.price);
@@ -54,9 +54,9 @@ function ItemPage() {
       (element) => element.optionId == e.target.id
     );
     if (index > -1) {
-      let count = orderList[index].count;
-      if (count > 0) {
-        orderList[index] = { ...orderList[index], count: count - 1 };
+      let qty = orderList[index].qty;
+      if (qty > 0) {
+        orderList[index] = { ...orderList[index], qty: qty - 1 };
         // console.log(orderList);
         setOrderList(orderList);
         setTotal(total - item.mainItem.price - orderList[index].price);
@@ -69,8 +69,8 @@ function ItemPage() {
       (element) => element.optionId == e.target.id
     );
     if (index > -1) {
-      let count = orderList[index].count;
-      orderList[index] = { ...orderList[index], count: count + 1 };
+      let qty = orderList[index].qty;
+      orderList[index] = { ...orderList[index], qty: qty + 1 };
       //   console.log(orderList);
       setOrderList(orderList);
       setTotal(total + item.mainItem.price + orderList[index].price);
@@ -172,7 +172,7 @@ function ItemPage() {
                     <button id={item.optionId} onClick={minus}>
                       -
                     </button>
-                    {item.count}
+                    {item.qty}
                     <button id={item.optionId} onClick={plus}>
                       +
                     </button>

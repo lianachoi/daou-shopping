@@ -1,17 +1,22 @@
 import "../App.css";
 import { useEffect, useState } from "react";
 import Axios from "axios";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import moment from "moment";
+import { useNavigate } from "react-router";
 
 function NewOrder(props) {
   let location = useLocation();
   const mainItem = location.state.mainItem;
   const total = location.state.total;
   const data = location.state.data;
+  const navigate = useNavigate();
+  //   console.log(data);
   const [order, setOrder] = useState({
+    orderId: "",
     userId: "",
     usePoint: 0,
+    forTransaction: false,
   });
   const [user, setUser] = useState({
     userId: "",
@@ -42,8 +47,15 @@ function NewOrder(props) {
   };
 
   useEffect(() => {
-    if (order.userId !== "") {
-      Axios.post("/api/v1/orders", order);
+    if (order.forTransaction) {
+      Axios.post("/api/v1/orders", { order: order, list: data }).then(
+        (response) => {
+          navigate("/orderPage", {
+            replace: false,
+            state: { order: response.data },
+          });
+        }
+      );
     }
   }, [order]);
 
@@ -126,6 +138,10 @@ function NewOrder(props) {
       status: 1,
       useCard: false,
       vAccount: "우리 1002-958-955-866",
+      forTransaction: true,
+      userName: user.userName,
+      address1: user.address1,
+      address2: user.address2,
     });
   };
   return (
@@ -148,16 +164,20 @@ function NewOrder(props) {
         <br />
         가격: {mainItem.price}
         <div>
-          {data.map((item) => (
-            <div className="select-box">
-              {item.optionName + " (+" + item.price + ") "}
-              <div> 수량: {item.count}</div>
-              <div>
-                {" "}
-                가격: {mainItem.price * item.count + item.price * item.count}
+          {data.map((item) =>
+            item.qty === 0 ? (
+              <></>
+            ) : (
+              <div className="select-box">
+                {item.optionName + " (+" + item.price + ") "}
+                <div> 수량: {item.qty}</div>
+                <div>
+                  {" "}
+                  가격: {mainItem.price * item.qty + item.price * item.qty}
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          )}
         </div>
       </div>
       {/* 유저정보/쿠폰 조회 */}
