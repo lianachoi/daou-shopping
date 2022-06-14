@@ -171,7 +171,10 @@ function SearchOrder() {
             <br />
             <button
               onClick={cancelOrder}
-              style={{ height: "50px" }}
+              style={{
+                height: "50px",
+                visibility: order.status === 3 ? "hidden" : "visible",
+              }}
               name="cancle"
               id="cancle"
             >
