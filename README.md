@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# DAOU Shopping
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+쇼핑몰 상품 주문 관리 화면   
+Web Application 개발 경력 채용 기술과제 입니다.   
 
-## Available Scripts
+* [DaouShopping](https://github.com/lianachoi/DaouShopping) - 쇼핑몰 상품 주문 관리 서버로 이동
 
-In the project directory, you can run:
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prerequisites
 
-### `npm test`
+아래와 같은 환경에서 제작되었습니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+* Visual Studio Code 1.68.0
+* React 18.1.0
+* Node.js v14.17.5.
+* npm 6.14.14
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+VS Code 에서 터미널> 새 터미널 을 선택해 터미널 창을 엽니다.
+```
+git clone https://github.com/lianachoi/daou-shopping.git
+cd daou-shopping
+npm install
+```
 
-### `npm run eject`
+## Running the Server
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 예시 - 아이템 조회
+![KakaoTalk_20220614_220236757](https://user-images.githubusercontent.com/24507556/173583956-9dd9c0d1-0d22-46e5-9b3c-32fdd3d8a40f.gif)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 예시 - 주문서 생성
+![KakaoTalk_20220614_220236757_01](https://user-images.githubusercontent.com/24507556/173584066-b5ce48b6-a980-4f2b-9f30-25fd4fd732f9.gif)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 예시 - 포인트/쿠폰 사용
+![KakaoTalk_20220614_220236757_02](https://user-images.githubusercontent.com/24507556/173584297-5228ad28-c3c7-4b17-96bf-e7f0af813b83.gif)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+### 예시 - 주문서 조회
+![KakaoTalk_20220614_220236757_03](https://user-images.githubusercontent.com/24507556/173584316-85b2383a-190e-4f1a-93cb-12ea5e642a7d.gif)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
